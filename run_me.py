@@ -22,10 +22,10 @@ np.random.seed(seed)
 
 # --------------------- ETL ---------------------
 
-data_labeling = pd.read_csv('input-data-labeling.csv')
-data_labels = pd.read_csv('input-data-labels.csv', parse_dates=False)
+data_labeling = pd.DataFrame.from_csv('input-data-labeling.csv')
+data_labels = pd.DataFrame.from_csv('input-data-labels.csv', parse_dates=False)
 
-# Takes only 10% of data because it takes too long to train.
+# only a fraction of data tested due to performance.
 data_labeling = data_labeling.sample(frac=0.1, random_state=seed)
 
 text_analisis.add_high_frequency_words(data_labeling, top_words=0.01)
